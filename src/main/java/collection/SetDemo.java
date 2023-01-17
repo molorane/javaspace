@@ -2,13 +2,6 @@ package collection;
 
 import java.util.*;
 
-class CompareEmployee implements Comparator<Employee> {
-
-    @Override
-    public int compare(Employee o1, Employee o2) {
-        return 0;
-    }
-}
 
 public class SetDemo {
 
@@ -33,9 +26,9 @@ public class SetDemo {
         System.out.println(list2); */
 
         Set<Employee> list3 = new TreeSet<>(new CompareEmployee());
-        list3.add(new Employee(3));
-        list3.add(new Employee(4));
-        list3.add(new Employee(5));
+        list3.add(new Employee(3, ""));
+        list3.add(new Employee(4, ""));
+        list3.add(new Employee(5, ""));
         System.out.println(list3);
     }
 }

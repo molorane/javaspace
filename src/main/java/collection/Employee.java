@@ -3,34 +3,48 @@ package collection;
 import java.util.Comparator;
 import java.util.Objects;
 
-public class Employee {
+public class Employee implements Comparable<Employee> {
 
 
-    private int age;
+    private int id;
+    private String name;
 
-    public Employee(int age) {
-        this.age = age;
+    public Employee(int id, String name) {
+        this.id = id;
+        this.name = name;
     }
 
-    public int getAge() {
-        return age;
+    public int getId() {
+        return id;
     }
 
-    public void setAge(int age) {
-        this.age = age;
+    public void setId(int id) {
+        this.id = id;
     }
 
+    public String getName() {
+        return name;
+    }
+
+    public void setName(String name) {
+        this.name = name;
+    }
 
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
         Employee employee = (Employee) o;
-        return age == employee.age;
+        return id == employee.id && Objects.equals(name, employee.name);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(age);
+        return Objects.hash(id, name);
+    }
+
+    @Override
+    public int compareTo(Employee o) {
+        return name.compareTo(o.name);
     }
 }
