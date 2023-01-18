@@ -8,12 +8,12 @@ import java.util.stream.Stream;
 public class IntStreams {
 
     public static void main(String[] args) {
-        ppp();
+        pp();
     }
 
     public static void ppp() {
         // Creating an IntStream
-        IntStream stream = IntStream.range(3, 89);
+        IntStream stream = IntStream.rangeClosed(3, 89);
 
         PrimitiveIterator.OfInt ofInt = stream.iterator();
         while(ofInt.hasNext()){

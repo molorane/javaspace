@@ -1,8 +1,11 @@
-package streamapi;
+package streamapi.basic;
 
+import streamapi.TimeIt;
+
+import java.util.List;
 import java.util.stream.LongStream;
 
-public class PrimeNumbers {
+public class Demo1bPrimeNumbers {
 
     private static boolean isPrime(long val) {
         for (long i = 2; i <= val / 2; i++) {
@@ -15,24 +18,24 @@ public class PrimeNumbers {
 
     public static void main(String[] args) {
         System.out.println("Parallel");
-        TimeIt.code(PrimeNumbers::parallel);
+        TimeIt.code(Demo1bPrimeNumbers::parallel);
         System.out.println("none parallel");
-        TimeIt.code(PrimeNumbers::noneParallel);
+        TimeIt.code(Demo1bPrimeNumbers::noneParallel);
     }
 
     public static void noneParallel() {
         long numOfPrimes = LongStream
-                .rangeClosed(2, 900_000)
-                .filter(PrimeNumbers::isPrime)
+                .rangeClosed(2, 1_500_000)
+                .filter(Demo1bPrimeNumbers::isPrime)
                 .count();
         System.out.println(numOfPrimes);
     }
 
     public static void parallel() {
         long numOfPrimes = LongStream
-                .rangeClosed(2, 900_000)
+                .rangeClosed(2, 1_500_000)
                 .parallel()
-                .filter(PrimeNumbers::isPrime)
+                .filter(Demo1bPrimeNumbers::isPrime)
                 .count();
         System.out.println(numOfPrimes);
     }

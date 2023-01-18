@@ -12,9 +12,10 @@ public class FindFirstUse1 {
 
     public static void main(String[] args) {
         Method[] methods = Stream.class.getMethods();
+
         Optional<String> methodName = Arrays.stream(methods)
                 .map(method -> method.getName())
-                .filter(name -> name.endsWith("Match"))
+                .filter(name -> name.endsWith("kadhahdad"))
                 .sorted()
                 .findAny();
         System.out.println("Result: " + methodName.orElse("No suitable method found"));

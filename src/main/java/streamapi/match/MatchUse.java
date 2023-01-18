@@ -4,12 +4,17 @@ import java.util.stream.IntStream;
 
 public class MatchUse {
     public static void main(String[] args) {
-        // Average temperatures in Concordia, Antarctica in a week in October 2015
-        boolean anyMatch = IntStream.of(-56, -57, -55, -52, -48, -51, -49).anyMatch(temp -> temp > 0);
-        System.out.println("anyMatch(temp -> temp > 0): " + anyMatch);
-        boolean allMatch = IntStream.of().allMatch(temp -> temp > 0);
-        System.out.println("allMatch(temp -> temp > 0): " + allMatch);
-        boolean noneMatch = IntStream.of(-56, -57, -55, -52, -48, -51, -49).noneMatch(temp -> temp > 0);
-        System.out.println("noneMatch(temp -> temp > 0): " + noneMatch);
+//        boolean anyMatch = IntStream.of( -5, -5, -5, 8, -5, -8, -1, -9)
+//                .peek(System.out::println)
+//                .anyMatch(x -> x > 0);
+//        System.out.println("anyMatch(x -> x > 0): " + anyMatch);
+//        boolean allMatch = IntStream.of(1, -8, 90)
+//                .peek(System.out::println)
+//                .allMatch(x -> x > 0);
+//        System.out.println("allMatch(x -> x > 0): " + allMatch);
+        boolean noneMatch = IntStream.of(-1, -3, 9)
+                .peek(System.out::println)
+                .noneMatch(x -> x > 0);
+        System.out.println("noneMatch(x -> x > 0): " + noneMatch);
     }
 }
