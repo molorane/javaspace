@@ -1,36 +1,39 @@
 package streamapi.pimitive;
 
 import java.util.Arrays;
+import java.util.OptionalLong;
 
 public class Boxed {
 
     static void miniMaxSum(int[] arr) {
 
-        long min = Arrays.stream(arr)
+        OptionalLong min = Arrays.stream(arr)
                 .boxed()
                 .sorted()
                 .mapToLong(x -> x)
                 .limit(4)
-                .sum();
+                .min();
 
-        long max = Arrays.stream(arr)
+        OptionalLong max = Arrays.stream(arr)
+                .boxed()
+                .sorted()
+                .mapToLong(x -> x)
+                .limit(4)
+                .max();
+
+        long sum = Arrays.stream(arr)
                 .boxed()
                 .sorted()
                 .mapToLong(x -> x)
                 .skip(1)
                 .sum();
 
-        System.out.println(min + " " + max);
+        System.out.printf("%s %s %s", min.orElse(0), max.getAsLong(), sum);
     }
 
-    public static void main(String[] args) throws InterruptedException {
-        int[] li = {256741038, 623958417, 467905213, 714532089, 938071625};
-        // 396285104 573261094 759641832 819230764 364801279
-        // 140638725 436257910 953274816 734065819 362748590
-        // 769082435 210437958 673982045 375809214 380564127
+    public static void main(String[] args) {
+        int[] li = {1, 2, 3, 4, 5, 6, 7, 8};
         miniMaxSum(li);
-
-
     }
 
 }
