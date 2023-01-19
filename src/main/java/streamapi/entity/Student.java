@@ -1,11 +1,11 @@
 package streamapi.entity;
 
-public class Person implements Comparable<Person> {
+public class Student implements Comparable<Student> {
     String name;
     Gender gender;
     int age;
 
-    public Person(String name, Gender gender, int age) {
+    public Student(String name, Gender gender, int age) {
         this.name = name;
         this.gender = gender;
         this.age = age;
@@ -41,9 +41,9 @@ public class Person implements Comparable<Person> {
     }
 
     @Override
-    public int compareTo(Person o) {
+    public int compareTo(Student o) {
         // TODO Auto-generated method stub
-        return 0;
+        return this.name.compareTo(o.getName());
     }
 
     public boolean bornBeforeEpoc() {
